@@ -7,11 +7,17 @@ export default {
             type: String,
             default: 'Button'
         },
+        icon: {
+            type: String,
+            default: ''
+        }
     }
 }
 </script>
 
 <template>
-    <button class="text-white p-3 h-12 rounded-lg bg-white/20 shadow-md hover:shadow-lg">
+    <button
+        class="text-white p-3 h-12 flex justify-center items-center rounded-lg bg-white/20 shadow-md hover:shadow-lg">
+        <span v-if="icon" v-html="icon" class="w-fit -ml-1 h-fit flex justify-center items-center" />
         {{ text }}</button>
 </template>

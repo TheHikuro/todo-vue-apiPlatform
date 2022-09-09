@@ -1,8 +1,10 @@
 <script setup>
+import Navbar from './components/Navbar.vue';
 </script>
 
 <template>
-    <div id="app">
+    <div class="w-full h-screen">
+        <Navbar />
         <router-view />
     </div>
 </template>

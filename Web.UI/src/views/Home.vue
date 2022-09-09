@@ -30,7 +30,7 @@ export default {
                 completed: false
             })
         },
-    }
+    },
 }
 </script>
 <script setup>
@@ -38,19 +38,23 @@ import Button from '../components/Button.vue';
 </script>
 
 <template>
-    <div class="w-full h-screen flex justify-center items-center">
+    <div class="w-full h-full flex justify-center items-center">
         <div class="w-4/6 h-4/6 rounded-lg shadow-md bg-white/25 flex flex-col ">
             <div class="h-fit p-2">
-                <Button class="text-white" text="Nouvelle Todo" @click="addTodo(todos)" />
+                <Button class="text-white" text="Nouvelle todo" @click="addTodo(todos)" icon='<lord-icon src="https://cdn.lordicon.com/ttioogfl.json" trigger="morph"
+                    colors="primary:#121331,secondary:#ebe6ef,tertiary:#4bb3fd,quaternary:#92140c,quinary:#f9c9c0">
+                </lord-icon>' />
             </div>
             <div class="h-full p-2 overflow-scroll">
                 <h2>Mes todos</h2>
-                <v-router-link
-                    class="rounded-md p-3 m-2 hover:cursor-pointer hover:bg-green-400 bg-white w-fit flex text-black"
-                    v-for="todo in todos" :key="todo.id" :to="{ name: 'todo', params: { id: todo.id } }">
-                    {{ todo.title }}
-                </v-router-link>
+                <div class="rounded-md p-3 m-2 hover:cursor-pointer hover:bg-green-400 bg-white w-fit flex text-black"
+                    v-for="todo in todos" :key="todo.id">
+                    <router-link :to="{name: 'Todo', params: {todoId: todo.id}}">
+                        {{ todo.title }}
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>
 </template>
+

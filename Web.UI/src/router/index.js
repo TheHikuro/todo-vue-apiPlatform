@@ -4,7 +4,25 @@ const routes = [
     {
         path: '/',
         name: 'Home',
-        component: () => import('../views/Home.vue')
+        alias: '/home',
+        component: () => import('../views/Home.vue'),
+        // beforeEnter: (to, from, next) => {
+        //     if (localStorage.getItem('token')) {
+        //         next()
+        //     } else {
+        //         next('/login')
+        //     }
+        // }
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: () => import('../views/Login.vue')
+    },
+    {
+        path: '/todo/:todoId',
+        name: 'Todo',
+        component: () => import('../views/Todo.vue')
     },
 ]
 
