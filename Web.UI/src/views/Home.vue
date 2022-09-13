@@ -1,6 +1,10 @@
 <script>
+import Button from '../components/Button.vue'
 export default {
     name: 'listTodo',
+    components: {
+        Button
+    },
     data() {
         return {
             todos: [
@@ -30,11 +34,11 @@ export default {
                 completed: false
             })
         },
+        redirect(todoId) {
+            this.$router.push('/todo/' + todoId)
+        }
     },
 }
-</script>
-<script setup>
-import Button from '../components/Button.vue';
 </script>
 
 <template>
@@ -47,8 +51,8 @@ import Button from '../components/Button.vue';
             </div>
             <div class="h-full p-2 overflow-scroll">
                 <h2>Mes todos</h2>
-                <div class="rounded-md p-3 m-2 hover:cursor-pointer hover:bg-green-400 bg-white w-fit flex text-black"
-                    v-for="todo in todos" :key="todo.id">
+                <div class="rounded-md p-3 my-2 hover:cursor-pointer hover:bg-green-400 bg-white w-full flex text-black"
+                    v-for="todo in todos" :key="todo.id" @click="redirect(todo.id)">
                     <router-link :to="{name: 'Todo', params: {todoId: todo.id}}">
                         {{ todo.title }}
                     </router-link>

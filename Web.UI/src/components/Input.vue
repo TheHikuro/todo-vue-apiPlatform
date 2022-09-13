@@ -10,7 +10,11 @@ export default {
         value: {
             type: String,
             default: ''
-        }
+        },
+        roundedFull: {
+            type: Boolean,
+            default: false
+        },
     },
     emits: ['update:value'],
     methods: {
@@ -22,5 +26,6 @@ export default {
 </script>
 <template>
     <input :value="value" @input="updateValue" :placeholder="placeholder"
-        class="border-2 border-gray-300 bg-white text-black h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" />
+        class="border-2 border-gray-300 w-full bg-white text-black h-10 px-5 text-sm focus:outline-none"
+        :class="roundedFull ? 'rounded-full' : 'rounded-lg'" />
 </template>

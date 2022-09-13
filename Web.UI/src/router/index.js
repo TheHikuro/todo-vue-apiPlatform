@@ -27,7 +27,7 @@ const routes = [
 ]
 
 const router = VueRouter.createRouter({
-    history: VueRouter.createWebHistory('/'),
+    history: VueRouter.createWebHistory(import.meta.env.VITE_HOST_URL_BASE),
     routes
 })
 
