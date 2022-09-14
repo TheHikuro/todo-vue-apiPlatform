@@ -6,15 +6,10 @@ export default {
     name: 'Login',
     components: {
         Input,
-        Button
+        Button,
     },
     methods: {
-        login(e) {
-            e.preventDefault();
-            const data = {
-                username: e.target.email.value,
-                password: e.target.password.value
-            };
+        login(data) {
             console.log(data);
         }
     },
@@ -32,16 +27,14 @@ export default {
                 <div class="w-1/3 flex flex-col justify-start items-start -ml-0.5">
                     <img :src="Leaf" alt="todo-login-img">
                 </div>
-                <form class="w-1/3 flex flex-col justify-center items-center">
-                    <h1 class="text-4xl text-white">Connexion</h1>
-                    <div class="flex flex-col h-32 justify-evenly mb-5 w-full">
-                        <Input placeholder="Email" roundedFull name="email" />
-                        <Input placeholder="Mot de passe" roundedFull type="password" name="password" />
-                    </div>
-                    <div class="flex justify-center items-center">
-                        <Button text="Connexion" @click="login(e)" />
-                    </div>
-                </form>
+                <div class="w-1/3 flex flex-col justify-center items-center px-2">
+                    <FormKit type="form" form-class="w-full" @submit="login" submit-label="Connexion">
+                        <FormKit type="text" name="email" label="Email" placeholder="exemple@email.here"
+                            validation="required|email" />
+                        <FormKit type="password" name="password" label="Password" placeholder="Mot de passe"
+                            validation="required|password" />
+                    </FormKit>
+                </div>
                 <div class="w-1/3 flex flex-col justify-end items-end">
                     <div class="p-3 rounded-lg bg-green-400 mb-10 -mr-7 hover:cursor-pointer hover:bg-green-500">
                         Créer un compte

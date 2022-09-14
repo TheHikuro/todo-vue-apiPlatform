@@ -7,10 +7,10 @@ dockerClient = ${webClient}/docker-compose.yml
 export envFile = .env.local
 
 build: 
-	@echo "Building the project"
-	@echo "Building the server"
+	@echo "Building the project ${projectName} ${projectVersion} 🍺"
+	@echo "Building the server 🍺"
 	@cd ${webServer} && docker-compose -p ${projectName} build --no-cache --pull 
-	@echo "Building the client"
+	@echo "Building the client 🍺"
 	@cd ${webClient} && docker-compose -p ${projectName} build
 	
 start:
@@ -18,18 +18,17 @@ start:
 	@echo "Starting the server 🚀"
 	@cd ${webServer} && docker-compose -p ${projectName} up -d
 	@echo "Starting the client 🚀"
-	@cd ${webClient} && docker-compose -p ${projectName} --env-file="${envFile}" up -d
+	@cd ${webClient} && docker-compose -p ${projectName} --env-file="${envFile}" up -d && yarn
 
 stop:
-	@echo "Stopping the project"
-	@echo "Stopping the server"
-	@cd ${webServer} && docker-compose stop
-	@echo "Stopping the client"
-	@cd ${webClient} && docker-compose stop 
+	@echo "Stopping the project 🛑"
+	@echo "Stopping the server 🛑"
+	@echo "Stopping the client 🛑"
+	docker-compose -p ${projectName} stop
 
 clear: 
-	@echo "Clearing the project"
-	@echo "Clearing the server"
+	@echo "Clearing the project 🧹"
+	@echo "Clearing the server  🧹"
 	@cd ${webServer} && docker-compose down
-	@echo "Clearing the client"
+	@echo "Clearing the client 🧹"
 	@cd ${webClient} && docker-compose down

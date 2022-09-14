@@ -4,3 +4,5 @@ node_modules
 .vscode/dryrun.log
 .DS_Store
 .docker
+yarn.lock
+.docker
