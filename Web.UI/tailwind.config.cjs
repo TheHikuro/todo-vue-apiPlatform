@@ -9,6 +9,11 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    formKitTailwind
+    formKitTailwind,
+    require('daisyui')
   ],
+  daisyui: {
+    themes: ['garden', 'coffee'],
+    darkTheme: 'coffee',
+  },
 }

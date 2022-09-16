@@ -38,7 +38,7 @@ class Trello
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column()]
-    #[Groups(['get'])]
+    #[Groups(['get', 'cget'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
