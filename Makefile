@@ -16,9 +16,9 @@ build:
 start:
 	@echo "Starting the project 🚀"
 	@echo "Starting the server 🚀"
-	@cd ${webServer} && docker-compose -p ${projectName} up -d
+	@cd ${webServer} && docker-compose -p ${projectName} --env-file="${envFile}" up -d 
 	@echo "Starting the client 🚀"
-	@cd ${webClient} && docker-compose -p ${projectName} --env-file="${envFile}" up -d && yarn
+	@cd ${webClient} && docker-compose -p ${projectName} --env-file="${envFile}" up -d
 
 stop:
 	@echo "Stopping the project 🛑"

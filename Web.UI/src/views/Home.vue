@@ -7,24 +7,11 @@ export default {
     },
     data() {
         return {
-            todos: [
-                {
-                    id: 1,
-                    title: 'Learn Vue',
-                    completed: false
-                },
-                {
-                    id: 2,
-                    title: 'Learn Vue 3',
-                    completed: true
-                },
-                {
-                    id: 3,
-                    title: 'Learn Vue 3 Composition API',
-                    completed: false
-                }
-            ],
+            todos: [],
         }
+    },
+    mounted() {
+        this.getTrello()
     },
     methods: {
         addTodo() {
@@ -36,6 +23,22 @@ export default {
         },
         redirect(todoId) {
             this.$router.push('/todo/' + todoId)
+        },
+        async getTrello() {
+            await fetch('https://localhost:443/trellos',
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Origin': 'https://localhost:8080',
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    this.todos = data
+                    console.log(this.todos);
+                })
+
         }
     },
 }

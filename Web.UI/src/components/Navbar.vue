@@ -14,16 +14,16 @@ export default {
     },
     watch: {
         $route() {
-            this.display = this.checkPattern();
+            // this.display = this.checkPattern();
         }
     },
     methods: {
-        checkPattern() {
-            return whenPatternMatches(this.$route.path, [
-                [/^\/login\/?$/], this.display = false
-                [/^\/register\/?$/], this.display = false
-            ]);
-        }
+        // checkPattern() {
+        //     return whenPatternMatches(this.$route.path, [
+        //         [/^\/login\/?$/], this.display = false
+        //         [/^\/register\/?$/], this.display = false
+        //     ]);
+        // }
     },
     components: {},
 }
