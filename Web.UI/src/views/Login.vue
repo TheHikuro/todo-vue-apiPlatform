@@ -28,12 +28,18 @@ export default {
                     <img :src="Leaf" alt="todo-login-img">
                 </div>
                 <div class="w-1/3 flex flex-col justify-center items-center px-2">
-                    <FormKit type="form" form-class="w-full" @submit="login" submit-label="Connexion">
+                    <div class="h-1/6 w-full flex flex-col items-center justify-center mt-10">
+                        <img class="w-20 h-20" src="../assets/logo.png" alt="logo">
+                        <span class="text-3xl font-bold mt-2">Todo: Connexion</span>
+                    </div>
+                    <FormKit type="form" form-class="w-full flex justify-center  flex-col h-4/6" @submit="login"
+                        submit-label="Connexion">
                         <FormKit type="text" name="email" label="Email" placeholder="exemple@email.here"
                             validation="required|email" />
                         <FormKit type="password" name="password" label="Password" placeholder="Mot de passe"
                             validation="required|password" />
                     </FormKit>
+                    <div class="h-1/6 w-full mt-10" />
                 </div>
                 <div class="w-1/3 flex flex-col justify-end items-end">
                     <div class="p-3 rounded-lg bg-green-400 mb-10 -mr-7 hover:cursor-pointer hover:bg-green-500">
