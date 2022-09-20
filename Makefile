@@ -29,6 +29,6 @@ stop:
 clear: 
 	@echo "Clearing the project 🧹"
 	@echo "Clearing the server  🧹"
-	@cd ${webServer} && docker-compose down
+	@cd ${webServer} && docker-compose -p ${projectName}  down
 	@echo "Clearing the client 🧹"
-	@cd ${webClient} && docker-compose down
+	@cd ${webClient} && docker-compose -p ${projectName}  down

@@ -51,6 +51,7 @@ services:
       - php_socket:/var/run/php
       - caddy_data:/data
       - caddy_config:/config
+      - ./certs:/caddy/certs
     ports:
       # HTTP
       - target: 80

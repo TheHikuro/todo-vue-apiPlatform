@@ -4,7 +4,7 @@ export default {
     props: {
         user: {
             default: 'Connexion'
-        }
+        },
     },
     data() {
         return {
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-    <div class="navbar bg-white/5" v-if="!$route.meta.hideNavBar">
+    <nav class="navbar bg-white/5" v-if="!$route.meta.hideNavBar">
         <router-link to="/" class="flex-1 rounded-md py-1 px-3">
             <img class="w-12 h-12 rounded-full" src="../assets/logo.png" alt="logo">
             <span class="normal-case font-bold text-green-400 ml-2 text-3xl">Todo app</span>
@@ -50,5 +50,6 @@ export default {
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
+    <slot />
 </template>

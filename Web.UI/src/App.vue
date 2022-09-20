@@ -11,7 +11,8 @@ export default {
 
 <template>
     <div class="w-full max-h-screen h-screen">
-        <Navbar />
-        <router-view />
+        <Navbar>
+            <router-view />
+        </Navbar>
     </div>
 </template>
